@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@metamask/connect-evm": "^0.10.0",
     "@rainbow-me/rainbowkit": "^2.2.10",
     "@tanstack/react-query": "^5.99.0",
     "next": "16.2.3",
@@ -23,5 +24,12 @@
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@walletconnect/core": "2.21.1",
+      "@walletconnect/sign-client": "2.21.1",
+      "@walletconnect/universal-provider": "2.21.1"
+    }
   }
 }

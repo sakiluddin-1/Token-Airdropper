@@ -1,11 +1,11 @@
 "use client"
 
 import {getDefaultConfig} from "@rainbow-me/rainbowkit";
-import {anvil, zkSync} from "wagmi/chains";
+import {sepolia, mainnet} from "wagmi/chains";
 
 export default getDefaultConfig({
     appName: "Token Airdropper",
-    projectId: "545",
-    chains: [anvil, zkSync],
+    projectId: "process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!",
+    chains: [sepolia, mainnet],
     ssr: false,
 })
