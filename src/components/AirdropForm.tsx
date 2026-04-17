@@ -1,17 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { InputField } from "./ui/InputField";
 import {chainsToTSender, tsenderAbi, erc20Abi} from "../constants";
+import {useChainId, useConfig, useAccount} from "wagmi";
+import {readContract} from "@wagmi/core";
 
 export default function AirdropForm() {
   const [tokenAddress, setTokenAddress] = useState("");
   const [recipentAddresses, setRecipientAddresses] = useState("");
   const [amount, setAmount] = useState("");
-  const tSenderAddress = chainsToTSender[chainId]["tsender"];
+  const chainId = useChainId();
+  const config = useConfig();
+  const account = useAccount();
+  const total: number = useMemo(() => calculateTotal(amount), [amount]);
+
+  async function getApprovedAmount(tSenderAddress: string | null): Promise<number> {
+    if(!tSenderAddress) {
+      alert("No address found, please use supported chain");
+      return 0;
+    }
+
+    const response = await readContract(config, {
+      address: tokenAddress as `0x{string}`,
+      abi: erc20Abi,
+      functionName: "allowance",
+      args: [account.address, tSenderAddress  as `0x${string}`],
+    });
+
+    return response as number;
+  }
 
   async function handleSubmit() {
+    const tSenderAddress = chainsToTSender[chainId]["tsender"];
+    const approvedAmount = await getApprovedAmount(tSenderAddress);
     
+    if(1 !== 2) {}
   }
 
   return (
