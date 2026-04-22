@@ -21,4 +21,4 @@ describe("calculateTotal", () => {
     it("handles trailing comma", () => {
         expect(calculateTotal("100,200,")).toBe(300)
     })
-})
+}) 
