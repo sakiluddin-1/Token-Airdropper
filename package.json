@@ -31,11 +31,14 @@
     "typescript": "^5",
     "vitest": "^4.1.4"
   },
-  "pnpm": {
-    "overrides": {
-      "@walletconnect/core": "2.21.1",
-      "@walletconnect/sign-client": "2.21.1",
-      "@walletconnect/universal-provider": "2.21.1"
-    }
+ "pnpm": {
+  "overrides": {
+    "@walletconnect/core": "2.21.1",
+    "@walletconnect/sign-client": "2.21.1",
+    "@walletconnect/universal-provider": "2.21.1",
+
+    "playwright": "1.59.1",
+    "playwright-core": "1.59.1"
   }
+}
 }
