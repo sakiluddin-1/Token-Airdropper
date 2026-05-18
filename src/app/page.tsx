@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       {!isConnected ? (<div className="flex items-center justify-center">
-                    <h2 className="text-xl font-medium text-zinc-600">
+                    <h2 className="text-xl font-medium text-600">
                         Please connect a wallet...
                     </h2>
                 </div>) : <div>
