@@ -7,9 +7,11 @@ export default function Home() {
   const {isConnected} = useAccount();
   return (
     <div>
-      {!isConnected ? (<div>
-        Please connect a wallet
-      </div>) : <div>
+      {!isConnected ? (<div className="flex items-center justify-center">
+                    <h2 className="text-xl font-medium text-zinc-600">
+                        Please connect a wallet...
+                    </h2>
+                </div>) : <div>
         <HomeContent />
         </div>}
     </div>
